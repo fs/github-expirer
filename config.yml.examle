@@ -1,6 +1,6 @@
 ---
 username: username
 password: password
-org: org
-private: true
-expire: 1 year ago
+#organization: org
+#private_only: true
+#expire_date: 1 year
