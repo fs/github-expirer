@@ -13,7 +13,7 @@ class Expirer
 
     @repos = @github.repos.all( org: @config["org"] )
 
-    @expire = @config["expire"] || Chronic.parse('1 year ago')
+    @expire = Chronic.parse( @config["expire"] || '1 year ago' )
 
     @private_only = @config["private"]
   end
