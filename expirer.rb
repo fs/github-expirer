@@ -42,7 +42,7 @@ class Expirer
   end
 
   def repositories
-    @repositories ||= github.repos.all(:org => @config[:organization])
+    @repositories ||= github.repos.all(:org => @config[:organization], :per_page => 10000)
   end
 
   def private?(repository)
