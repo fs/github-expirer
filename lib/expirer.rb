@@ -20,8 +20,8 @@ class Expirer
 
   def initialize(config)
     @config = {
-      :expire_date  => '1 year ago',
-      :private_only => false,
+      expire_date:  '1 year ago',
+      private_only: false,
     }.merge(config.symbolize_keys)
   end
 
@@ -38,11 +38,11 @@ class Expirer
   end
 
   def github
-    @github ||= Github.new(:basic_auth => "#{@config[:username]}:#{@config[:password]}")
+    @github ||= Github.new(basic_auth: "#{@config[:username]}:#{@config[:password]}")
   end
 
   def repositories
-    @repositories ||= github.repos.all(:org => @config[:organization], :per_page => 10000)
+    @repositories ||= github.repos.all(org: @config[:organization], per_page: 10000)
   end
 
   def private?(repository)
@@ -53,10 +53,4 @@ class Expirer
   def expired?(repository)
     Time.parse(repository.pushed_at) < expire_date
   end
-end
-
-config = YAML.load(File.read('config.yml'))
-
-Expirer.new(config).expired_repositories.each do |repository|
-  puts repository
 end
