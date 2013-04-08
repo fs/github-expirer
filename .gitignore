@@ -1,3 +1,5 @@
-config.yml
+/.bundle
+/bin/stubs
+/config/config.yml
 *~
 *.swp

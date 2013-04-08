@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+
+require 'expirer'
+
+config = YAML.load(File.read('config/config.yml'))
+
+Expirer.new(config).expired_repositories.each do |repository|
+  puts repository
+end
