@@ -11,7 +11,7 @@ describe Expirer::Checker do
     context 'with expired repo' do
       let(:repository) do
         double(Expirer::Repository,
-          pushed_at: Chronic.parse('10 months ago').to_datetime)
+          last_updated_at: Chronic.parse('10 months ago').to_datetime)
       end
 
       it { should be true }
@@ -20,7 +20,7 @@ describe Expirer::Checker do
     context 'with fresh repo' do
       let(:repository) do
         double(Expirer::Repository,
-          pushed_at: Chronic.parse('1 month ago').to_datetime)
+          last_updated_at: Chronic.parse('1 month ago').to_datetime)
       end
 
       it { should be false }

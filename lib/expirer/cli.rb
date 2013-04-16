@@ -13,10 +13,10 @@ module Expirer
 
     def list
       Expirer.configuration.load_from_file!(options[:file])
-      Expirer.configuration.load_from_options!(options)
+      Expirer.configuration.load_from_options!(options.to_hash)
 
       Expirer::List.with_expired do |repository|
-        Expirer::Reporter.report(repository)
+        puts Expirer::Reporter.report(repository)
       end
     end
 

@@ -10,8 +10,8 @@ module Expirer
       @github_repository.private
     end
 
-    def pushed_at
-      DateTime.parse(@github_repository.pushed_at)
+    def last_updated_at
+      DateTime.parse(last_updated_at_value)
     end
 
     def url
@@ -20,6 +20,12 @@ module Expirer
 
     def expired?
       Checker.expired?(self)
+    end
+
+    private
+
+    def last_updated_at_value
+      @github_repository.pushed_at || @github_repository.updated_at
     end
   end
 end

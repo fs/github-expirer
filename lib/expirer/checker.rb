@@ -11,7 +11,7 @@ module Expirer
     end
 
     def expired?
-      @repository.pushed_at < Expirer.configuration.expire_date
+      @repository.last_updated_at < Expirer.configuration.expire_date
     end
   end
 end

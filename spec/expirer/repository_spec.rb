@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Expirer::Repository do
-  subject(:repository) do
+  let(:repository) do
     Expirer::Repository.new(double(
       pushed_at: '2011-01-26T19:06:43Z',
       html_url: 'http://github.com/fs/test',
@@ -9,9 +9,27 @@ describe Expirer::Repository do
     ))
   end
 
-  it 'pushed_at' do
-    expect(repository.pushed_at).to be_a_kind_of(DateTime)
-    expect(repository.pushed_at).to eq(DateTime.parse('2011-01-26T19:06:43Z'))
+  describe '#last_updated_at' do
+    it 'parse pushed_at' do
+      expect(repository.last_updated_at).to be_a_kind_of(DateTime)
+      expect(repository.last_updated_at).to eq(DateTime.parse('2011-01-26T19:06:43Z'))
+    end
+
+    context 'without pushed_at' do
+      let(:repository) do
+        Expirer::Repository.new(double(
+          pushed_at: nil,
+          updated_at: '2011-01-26T19:06:43Z',
+          html_url: 'http://github.com/fs/test',
+          private: true
+        ))
+      end
+
+      it 'parse created_at' do
+        expect(repository.last_updated_at).to be_a_kind_of(DateTime)
+        expect(repository.last_updated_at).to eq(DateTime.parse('2011-01-26T19:06:43Z'))
+      end
+    end
   end
 
   it 'url' do

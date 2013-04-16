@@ -24,8 +24,8 @@ module Expirer
       set_options(DEFAULTS)
     end
 
-    def load_from_options!(hash)
-      set_options(hash.dup.underscore_keys!.symbolize_keys)
+    def load_from_options!(options)
+      set_options(options.underscore_keys.symbolize_keys)
     end
 
     def expire_date

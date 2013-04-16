@@ -17,7 +17,7 @@ module Expirer
     private
 
     def datetime
-      @repository.pushed_at.strftime('%Y %b %e %a %T')
+      @repository.last_updated_at.strftime('%Y %b %e %a %T')
     end
 
     def url
