@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'expirer'
+
+Expirer::CLI.start(ARGV)

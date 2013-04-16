@@ -1,0 +1,5 @@
+username: user
+password: password
+organization: fs
+private_only: false
+expire_date: 6 months ago
