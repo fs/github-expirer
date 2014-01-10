@@ -14,6 +14,10 @@ A quick hack to produce a list of not used repositories at Github.
       --private-only true \
       --expire-date "6 months ago"
 
+**In case two-factor authentication enabled** please use your 
+[Personal Access Tokens](https://github.com/blog/1509-personal-api-tokens)
+instead of your regular password.
+
 ## Contributing
 
 1. Fork it
