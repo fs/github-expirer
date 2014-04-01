@@ -25,3 +25,13 @@ instead of your regular password.
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Credits
+
+Github Expirer is maintained by [Timur Vafin](http://github.com/timurvafin).
+It was written by [Flatstack](http://www.flatstack.com) with the help of our
+[contributors](http://github.com/fs/github-expirer/contributors).
+
+
+[![Flatstack](http://www.flatstack.com/assets/images/logo.png)](http://www.flatstack.com)
+
