@@ -5,7 +5,7 @@ require 'spec_helper'
 describe Expirer::Reporter do
   let(:repository) do
     double(Expirer::Repository,
-      pushed_at: double(strftime: 'datetime'),
+      last_updated_at: double(strftime: 'datetime'),
       url: 'url'
     )
   end
