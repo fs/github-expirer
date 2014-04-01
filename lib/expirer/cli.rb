@@ -10,6 +10,12 @@ module Expirer
     option 'config', type: :string
 
     desc 'list', 'List expired repositories'
+    long_desc <<-LONGDESC
+      In case two-factor authentication enabled please use your
+      Personal Access Tokens instead of your regular password.
+
+      You can generate it using this URL https://github.com/blog/1509-personal-api-tokens
+    LONGDESC
 
     def list
       Expirer.configuration.load_from_file!(options[:file])
